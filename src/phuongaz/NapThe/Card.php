@@ -11,7 +11,7 @@ Class Card{
     /** @var array */
     private $data = [];
 
-    public function __construct(Player $player, array $data){
+    public function __construct(array $data){
         $this->data = $data;
     }
 
