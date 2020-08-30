@@ -40,7 +40,7 @@ Class NapTheForm extends CustomForm{
 				$seri = $data[1];
 			}
 			$data_card = ["PIN" => $pin, "SERI" => $seri, "CARD_VALUE" => $card_value, "ID" => $this->id_card, "NAME" => $this->name_card];
-			$card = new Card($data);
+			$card = new Card($data_card);
 			$card->sendCard($player);
 		};
 	}
