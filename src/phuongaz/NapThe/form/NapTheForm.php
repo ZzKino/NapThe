@@ -34,10 +34,10 @@ Class NapTheForm extends CustomForm{
 	public function getCallable() :Callable{
 		return function(Player $player, ?array $data){
 			if(is_null($data)) return;
-			$card_value = array_keys($this->amount)[$data[1]];
-			if(isset($data[2]) and isset($data[3])){
-				$pin = $data[3];
-				$seri = $data[2];
+			$card_value = array_keys($this->amount)[$data[0]];
+			if(isset($data[1]) and isset($data[2])){
+				$pin = $data[2];
+				$seri = $data[1];
 			}
 			$data_card = ["PIN" => $pin, "SERI" => $seri, "CARD_VALUE" => $card_value, "ID" => $this->id_card, "NAME" => $this->name_card];
 			$card = new Card($data);
