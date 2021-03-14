@@ -4,7 +4,7 @@ namespace phuongaz\NapThe\form;
 
 use pocketmine\Player;
 use jojoe77777\FormAPI\SimpleForm;
-use phuongaz\coin\Coin;
+use pocketmine\utils\Internet;
 
 Class CardStatusForm extends SimpleForm{
 
@@ -12,9 +12,9 @@ Class CardStatusForm extends SimpleForm{
 	private static $status = [];
 
 	public function __construct(){
-		$url = file_get_contents("http://api.napthengay.com/Status.php");
-		$datas = json_decode($url, true);
-		foreach($datas as $data){
+		$url = Internet::getURL("http://api.napthengay.com/Status.php");
+		$result = json_decode($url, true);
+		foreach($result as $data){
 			$status = $this->parseStatus($data["status"]);
 			self::$status[(int)$data["id"]] = ["name" => $data["name"], "id_status" => (int)$data["id"], "status" => $status];			
 		}
