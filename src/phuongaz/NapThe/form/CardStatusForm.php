@@ -12,8 +12,8 @@ Class CardStatusForm extends SimpleForm{
 	private static $status = [];
 
 	public function __construct(){
-		$url = Internet::getURL("http://api.napthengay.com/Status.php");
-		$result = json_decode($url, true);
+		$url = "http://api.napthengay.com/Status.php";
+		$result = json_decode(Internet::getURL($url), true);
 		foreach($result as $data){
 			$status = $this->parseStatus($data["status"]);
 			self::$status[(int)$data["id"]] = ["name" => $data["name"], "id_status" => (int)$data["id"], "status" => $status];			
